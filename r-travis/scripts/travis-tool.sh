@@ -235,7 +235,7 @@ InstallGithub() {
 }
 
 InstallDeps() {
-    Rscript -e 'options(repos=c(CRAN="'"${CRAN}"'")); install.packages(c("devtools", "TeXCheckR")); library(devtools); install_github("hughparsonage/grattanReporter", quick = TRUE)'
+    Rscript -e 'options(repos=c(CRAN="'"${CRAN}"'")); install.packages(c("devtools", "TeXCheckR"), quiet = TRUE); library(devtools); install_github("hughparsonage/grattanReporter", quick = TRUE)'
 }
 
 InstallBiocDeps() {
