@@ -275,6 +275,11 @@ DumpLogs() {
 }
 
 RunTests() {
+    wget http://mirror.ctan.org/systems/win32/miktex/setup/miktexsetup-x64.zip
+    unzip miktexsetup-x64.zip
+    miktexsetup --verbose --local-package-repository=C:\temp\miktex --package-set=basic download
+    miktexsetup --verbose --local-package-repository=C:\temp\miktex --modify-path install    
+
     echo "Building with: R CMD build ${R_BUILD_ARGS}"
     if [[ "${OS:0:5}" == "MINGW" || "${OS:0:4}" == "MSYS" ]]; then
         if [[ -d vignettes ]]; then
