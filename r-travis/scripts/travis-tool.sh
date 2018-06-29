@@ -235,13 +235,12 @@ InstallGithub() {
 }
 
 InstallDeps() {
-    EnsureRemotes
-    Rscript -e 'options(repos=c(CRAN="'"${CRAN}"'")); remotes::install_deps(dependencies = TRUE, type="'"${PKGTYPE}"'")'
+    Rscript -e 'options(repos=c(CRAN="'"${CRAN}"'")); install.packages(c("devtools", "TeXCheckR")); library(devtools); install_github("hughparsonage/grattanReporter", quick = TRUE)'
 }
 
 InstallBiocDeps() {
     EnsureDevtools
-    Rscript -e "${R_USE_BIOC_CMDS}"' library(devtools); install_deps(dependencies = TRUE, type="'"${PKGTYPE}"'")'
+    Rscript -e "${R_USE_BIOC_CMDS}"' library(devtools); install.packages("TeXCheckR"); install_github("hughparsonage/grattanReporter", quick = TRUE)'
 }
 
 DumpSysinfo() {
