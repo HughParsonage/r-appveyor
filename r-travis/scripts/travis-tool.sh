@@ -275,7 +275,7 @@ DumpLogs() {
 }
 
 RunTests() {
-    wget https://ctan.math.illinois.edu/systems/win32/miktex/setup/miktexsetup-x64.zip
+    wget --no-check-certificate https://ctan.math.illinois.edu/systems/win32/miktex/setup/miktexsetup-x64.zip
     unzip miktexsetup-x64.zip
     miktexsetup --verbose --local-package-repository=C:\temp\miktex --package-set=basic download
     miktexsetup --verbose --local-package-repository=C:\temp\miktex --modify-path install    
